@@ -10,6 +10,10 @@ use App\Http\Resources\Product as ProductResource;
 
 class ProductController extends BaseController 
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api')->only(['index', 'store', 'update', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      * 
